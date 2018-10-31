@@ -10,16 +10,16 @@ This terraform code will build a demo environment in AWS containing of:
   - x amount of Windows nodes
 
 #### Pre-Requisites
-
+* Create a working directory and copy the files in this repo to the base of it ("~/app" is assumed in this doc. ~app/keys/, ~/app/example.varfile, for instance)
 * Docker installed on your laptop. https://www.docker.com/get-started
 * If you are on a Mac, install Homebrew Package manager https://brew.sh/
 * Install ruby: `brew install ruby`
 * The ruby hiera-eyaml gem should be installed. `gem install hiera-eyaml`
 
 #### Pre-Deployment Steps
-
+* cd to your working directory ("~/app")
 * Run `eyaml createkeys`. 
-   * This command wil create a `./keys` folder and generate 2 files in it: *./keys/private_key.pkcs7.pem*, */keys/public_key.pkcs7.pem*.
+   * This command wil create a `./keys` folder and generate 2 files in it: *./keys/private_key.pkcs7.pem*, *./keys/public_key.pkcs7.pem*.
 * Generate private & public SSH key files in the ./keys folder: `ssh-keygen -f ./keys/<your initials>-control-repo`. For example: `ssh-keygen -f ./keys/rr-control-repo` *(just hit Enter to all questions)*
 * Upload the <your initials>-control-repo.pub (public) key to your AWS account.
    * Login to the AWS Bastion 
@@ -32,7 +32,7 @@ This terraform code will build a demo environment in AWS containing of:
    * Click on *New SSH Key* button and upload the ./keys/<your initials>-control-repo.pub file.
 * Create your Var File(below) or request one from your team. 
   
-#### Create Your Var File
+#### Put your details in your working directory's example.varfile ( e.g. ~/app/example.varfile )
 
 **Mandatory Variables**
 
